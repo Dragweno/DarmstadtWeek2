@@ -1,19 +1,23 @@
 package examples;
 
+import java.net.SocketAddress;
+
 public class Ticket {
 	
+	private SocketAddress creator;
 	private String type;
 	private String stock_name;
 	private int quantity;
 	private int price;
 	
-	public Ticket(String s) {
+	public Ticket(SocketAddress creator ,String s) {
+		this.setCreator(creator);
 		String delimiter = "[,]+";
 		String[] tokens = s.split(delimiter);
 		this.setType(tokens[0]);
 		this.setStock_name(tokens[1]);
 		this.setQuantity(Integer.parseInt(tokens[2]));
-		this.setPrice(Integer.parseInt(tokens[2]));
+		this.setPrice(Integer.parseInt(tokens[3]));
 	}
 
 	public String getType() {
@@ -46,6 +50,18 @@ public class Ticket {
 
 	public void setPrice(int price) {
 		this.price = price;
+	}
+
+	public SocketAddress getCreator() {
+		return creator;
+	}
+
+	public void setCreator(SocketAddress creator) {
+		this.creator = creator;
+	}
+	
+	public String toString(){
+		return "Creator : "+this.creator+"; Type : "+this.type+"; Stock name : "+this.stock_name+"; Quantity : "+this.quantity+"; Price :"+this.price+";";
 	}
 	
 }
