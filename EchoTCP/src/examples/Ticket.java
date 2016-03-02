@@ -5,13 +5,15 @@ import java.net.SocketAddress;
 public class Ticket {
 	
 	private SocketAddress creator;
+	private int port;
 	private String type;
 	private String stock_name;
 	private int quantity;
 	private int price;
 	
-	public Ticket(SocketAddress creator ,String s) {
+	public Ticket(SocketAddress creator , int port, String s) {
 		this.setCreator(creator);
+		this.setPort(port);
 		String delimiter = "[,]+";
 		String[] tokens = s.split(delimiter);
 		this.setType(tokens[0]);
@@ -59,9 +61,13 @@ public class Ticket {
 	public void setCreator(SocketAddress creator) {
 		this.creator = creator;
 	}
+
+	public int getPort() { return port; }
+
+	public void setPort(int port) { this.port = port; }
 	
 	public String toString(){
-		return "Creator : "+this.creator+"; Type : "+this.type+"; Stock name : "+this.stock_name+"; Quantity : "+this.quantity+"; Price :"+this.price+";";
+		return "Creator : "+this.creator+"; Port : "+this.port+"; Type : "+this.type+"; Stock name : "+this.stock_name+"; Quantity : "+this.quantity+"; Price :"+this.price+";";
 	}
 	
 }

@@ -59,7 +59,7 @@ public class Broker {
 		if (line.equals(".")) {                         // End of session?
 			holdTheLine = false;
 		} else {
-			Ticket myTicket = new Ticket(client.getRemoteSocketAddress(), line);
+			Ticket myTicket = new Ticket(client.getRemoteSocketAddress(), client.getPort(), line);
 			System.out.println(myTicket);
 			if (myTicket.getType().equals("SELL")){
 				stocks.add(myTicket);
