@@ -21,7 +21,8 @@ public class Broker {
 	static Socket client;
 	static BufferedReader fromClient;
 	static DataOutputStream toClient;
-  
+	static CalcClient ItemCalcClient;
+
 	static int response; 
 	static LinkedList<Ticket> stocks = new LinkedList<Ticket>();
 
